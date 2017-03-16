@@ -1,0 +1,135 @@
+﻿<Window x:Class="KinectV2_PhotoBooth.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        gif:ImageBehavior.AnimateInDesignMode="True"
+        xmlns:local="clr-namespace:KinectV2_PhotoBooth"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1280"
+        Loaded="Window_Loaded"
+        WindowStyle="None"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Canvas>
+        <Grid x:Name="Page1" Width="1280" Height="768">
+
+            <Image gif:ImageBehavior.AnimatedSource="Resources\animate.gif" Stretch="Fill"/>
+
+            <!--
+            <Image Source="Resources\page1_mainPage.jpg" />
+            -->
+            <Label x:Name="label" Content="趣味多功能拍照系統" HorizontalAlignment="Left" Margin="297,619,0,0" VerticalAlignment="Top" FontSize="72" FontWeight="Bold" Foreground="#FF020E04" Background="#FFD4BB8C" Height="120" Width="700"/>
+            <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="1062,661,0,0" VerticalAlignment="Top" Width="140" Height="75" Background="#FFDDDDDD" Opacity="0.6" FontWeight="Bold" FontSize="24" Click="btnStart_Click" Uid="btn1"/>
+
+        </Grid>
+        <Grid x:Name="Page2" Width="1280" Height="768" Canvas.Left="1280">
+            <Image Source="Resources\page1_mainPage.jpg" />
+            <!---介面2背景底圖-->
+            <ListView x:Name="listView" HorizontalAlignment="Left" Height="660" Margin="808,0,0,0" VerticalAlignment="Top" Width="462" Background="#7FFFFFFF" >
+                <ListViewItem x:Name="seg1" Selected="bg1_Selected">
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="s1" Source="Resources\res_Scene\S1_1920_1080.jpg" Height="125" Width="250"/>
+                        <TextBlock Text="Scene1" FontSize="30"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="seg2" Selected="bg2_Selected">
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="s2" Source="Resources\res_Scene\S2_1920_1080.jpg" Height="125" Width="250"/>
+                        <TextBlock Text="Scene2" FontSize="30" Height="127" Width="108"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="seg3" Selected="bg3_Selected">
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="s3" Source="Resources\res_Scene\S3_1920_1080.jpg" Height="125" Width="250"/>
+                        <TextBlock Text="Scene3" FontSize="30" Width="105"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="seg4" Selected="bg4_Selected">
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="s4" Source="Resources\res_Scene\S4_1920_1080.jpg" Height="125" Width="250"/>
+                        <TextBlock Text="Scene4" FontSize="30" Width="125"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="seg5" Selected="seg5_Selected">
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="s5" Source="Resources\res_Scene\S5_1920_1080.jpg" Height="125" Width="250"/>
+                        <TextBlock Text="Scene5" FontSize="30" Width="125"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="seg6" Selected="seg6_Selected">
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="s6" Source="Resources\res_Scene\S6_1920_1080.jpg" Height="125" Width="250"/>
+                        <TextBlock Text="Scene6" FontSize="30" Width="125"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+            <Button x:Name="btnToPage3" Content="Next" Margin="1086,666,54,0" VerticalAlignment="Top" Height="75" Background="#FFDDDDDD" Opacity="0.6" FontWeight="Bold" FontSize="24" Uid="btn2" Click="btnToPage3_Click_1"/>
+            <Label x:Name="label_Copy" Content="請選取喜歡的背景" HorizontalAlignment="Left" Margin="51,515,0,0" VerticalAlignment="Top" FontSize="72" FontWeight="Bold" Foreground="#FFDCC777" Background="#7F8A0FC0" Height="110" Width="640"/>
+            <Grid Name="CompositeImage" Margin="51,30,589,258" >
+                <Image x:Name="image1" RenderOptions.BitmapScalingMode="NearestNeighbor" Source="Resources\res_Scene\S1_1920_1080.jpg" Stretch="Fill" Width="640" Height="480"/>
+                <Image x:Name="Camera"  Stretch="UniformToFill" Width="640" Height="480"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="Page3" Width="1280" Height="768" Canvas.Left="2560">
+            <Image Source="Resources\page1_mainPage.jpg" />
+            <!---介面3背景底圖-->
+            <Grid Name="CompositeImage2" Margin="51,30,589,258" >
+                <Image x:Name="image2" RenderOptions.BitmapScalingMode="NearestNeighbor" Source="Resources\res_Scene\S1_1920_1080.jpg" Stretch="Fill" Width="640" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Image x:Name="Camera2" Stretch="UniformToFill"  Width="640" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Image x:Name="ImageBorder" Stretch="UniformToFill"  Width="640" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Grid>
+            <ListView x:Name="listView2" HorizontalAlignment="Left" Height="660" Margin="808,0,0,0" VerticalAlignment="Top" Width="462" Background="#7FFFFFFF" >
+                <ListViewItem x:Name="seg2_1" Selected="seg2_1_Selected" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="b1" Source="Resources\res_Border\flowerBorder.png" Height="125" Width="250"/>
+                        <TextBlock Text="Scene1" FontSize="30" Width="125"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="seg2_2" Selected="seg2_2_Selected" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="b2" Source="Resources\res_Border\Halloween-Border.png" Height="125" Width="250"/>
+                        <TextBlock Text="Scene2" FontSize="30" Width="125"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="seg2_3" Selected="seg2_3_Selected" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="b3" Source="Resources\res_Border\Wedding-Border.png" Height="125" Width="250"/>
+                        <TextBlock Text="Scene3" FontSize="30" Width="125"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="seg2_4" Selected="seg2_4_Selected" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="b4" Source="Resources\res_Border\Xmas-frame.png" Height="125" Width="250"/>
+                        <TextBlock Text="Scene4" FontSize="30" Width="125"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+            <Button x:Name="btnToPage4" Content="Next" Margin="1086,666,54,0" VerticalAlignment="Top" Height="75" Background="#FFDDDDDD" Opacity="0.6" FontWeight="Bold" FontSize="24" Click="btnToPage4_Click" Uid="btn3"/>
+            <Label x:Name="label_Copy1" Content="請選取合適相框" HorizontalAlignment="Left" Margin="51,515,0,0" VerticalAlignment="Top" FontSize="72" FontWeight="Bold" Foreground="#FFDCC777" Background="#7F8A0FC0" Height="110" Width="640"/>
+        </Grid>
+        <Grid x:Name="Page4" Width="1280" Height="768" Canvas.Left="3840">
+            <Image Source="Resources\page1_mainPage.jpg" />
+            <Grid Name="CompositeImage3" Margin="51,30,589,258">
+                <Image x:Name="image3" RenderOptions.BitmapScalingMode="NearestNeighbor" Source="Resources\res_Scene\S1_1920_1080.jpg" Stretch="Fill" Width="640" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Image x:Name="Camera3" Stretch="UniformToFill"  Width="640" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Image x:Name="ImageBorder2" Stretch="UniformToFill"  Width="640" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Grid>
+            <Button x:Name="btnTakePhoto" Content="按我拍照" HorizontalAlignment="Left" Margin="746,460,0,0" VerticalAlignment="Top" Width="210" Height="80" FontSize="26" Click="btnTakePhoto_Click"/>
+            <TextBox x:Name="txtWidth" HorizontalAlignment="Left" Height="39" Margin="869,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" FontSize="26" Text="0"/>
+            <TextBox x:Name="txtHeight" HorizontalAlignment="Left" Height="39" Margin="869,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" FontSize="26" Text="0"/>
+            <Label x:Name="label1" Content="拍照寬" HorizontalAlignment="Left" Margin="741,72,0,0" VerticalAlignment="Top" FontSize="26" Background="#FFA8D196" Opacity="0.8"/>
+            <Label x:Name="label1_Copy" Content="拍照高" HorizontalAlignment="Left" Margin="741,115,0,0" VerticalAlignment="Top" FontSize="26" Background="#FFA8D196" Opacity="0.8"/>
+            <TextBlock x:Name="TimerText" HorizontalAlignment="Left" Margin="746,545,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="86"/>
+            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="741,269,0,0" VerticalAlignment="Top" Width="215" Height="40" SelectionChanged="comboBox_SelectionChanged" FontSize="28">
+                <ComboBoxItem Content="640*480" HorizontalAlignment="Left" Width="213" Height="40" FontSize="28"/>
+                <ComboBoxItem Content="512*424" HorizontalAlignment="Left" Width="213" Height="40" FontSize="28"/>
+            </ComboBox>
+            <Label x:Name="label1_Copy1" Content="建議寬高選擇" HorizontalAlignment="Left" Margin="741,207,0,0" VerticalAlignment="Top" FontSize="26" Background="#FFA8D196" Opacity="0.8" Width="189"/>
+            <Button x:Name="GoFirstPage" Content="GoToFirst" Margin="51,662,1018,0" VerticalAlignment="Top" Height="75" Background="#FFDDDDDD" Opacity="0.6" FontWeight="Bold" FontSize="24" Uid="btn2" Click="GoFirstPage_Click" />
+            <Button x:Name="btnPrintPreview" Content="打印預覽" HorizontalAlignment="Left" Margin="746,360,0,0" VerticalAlignment="Top" Width="210" Height="80" FontSize="26" Click="btnPrintPreview_Click" />
+        </Grid>
+    </Canvas>
+</Window>
